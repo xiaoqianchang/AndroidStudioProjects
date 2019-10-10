@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+~ Created by Chang.Xiao on 2016/6/30.
+~ Copyright (c) 2016 Chang.Xiao
+-->
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="gray_normal">#bbbbbb</color>
+
+    <color name="normal_gray">#FFDFDFDF</color>
+    <color name="normal_white">#FFFFFFFF</color>
+    <color name="normal_green">#FF62CC74</color>
+    <color name="normal_red">#FFF96650</color>
+    <color name="normal_yellow">#FFFFCC00</color>
+    <color name="circle_background">@color/normal_white</color>
+
+    <color name="line_alert_color">#737273</color>
+    <!--<color name="line_alert_color">@color/normal_gray</color>-->
+    <color name="line_progress_background">@color/normal_gray</color>
+    <color name="line_progress_color">@color/normal_green</color>
+    <color name="line_indicator_text_color">@color/normal_white</color>
+    <color name="line_indicator_background">@color/normal_green</color>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 连框颜色值 -->
+    <item >
+        <shape android:shape="rectangle"><!-- 矩形 -->
+            <solid android:color="@color/gray_normal"/>
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- 边框厚度 -->
+	<item android:bottom="1.0dp" android:right="1.0dp" android:top="1.0dp" android:left="1.0dp">
+	    <shape android:shape="rectangle">
+	        <!-- 主体背景颜色值 -->
+	        <solid android:color="@android:color/white"/>
+	        <corners android:radius="8dp" />
+
+	    </shape>
+
+	</item>
+	 
+</layer-list>

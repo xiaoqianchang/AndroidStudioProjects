@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/lay_16"
+    android:paddingRight="@dimen/lay_16">
+
+    <com.changxiao.example.timeline.widget.TimeLineMarker
+        android:id="@+id/item_time_line_mark"
+        android:layout_width="25dp"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/lay_16"
+        android:paddingLeft="@dimen/lay_4"
+        android:paddingRight="@dimen/lay_4"
+        android:paddingTop="@dimen/lay_16"
+        app:beginLine="@color/black_alpha_32"
+        app:endLine="@color/black_alpha_32"
+        app:lineSize="2dp"
+        app:marker="@drawable/ic_timeline_default_marker"
+        app:markerSize="24dp"/>
+
+    <TextView
+        android:id="@+id/item_time_line_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="@dimen/lay_16"
+        android:paddingLeft="@dimen/lay_4"
+        android:paddingRight="@dimen/lay_4"
+        android:paddingTop="@dimen/lay_16"
+        android:textColor="#f00"
+        android:textSize="@dimen/font_16"/>
+</LinearLayout>

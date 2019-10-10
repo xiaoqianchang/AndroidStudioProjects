@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fl_hint_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.changxiao.simpletestdemo.MainActivity">
+
+    <TextView
+        android:id="@+id/main_tv_update_num"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/colorPrimary"
+        android:background="#FFECE8"
+        android:visibility="gone"
+        tools:text="为您更新了23条内容"
+        tools:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/iv_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_loading"/>
+
+    <TextView
+        android:id="@+id/tv_bg_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/bg_loading"
+        android:gravity="center"
+        android:text="hahah"/>
+
+    <TextView
+        android:id="@+id/tv_animation_view"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:drawableRight="@mipmap/ic_launcher"
+        android:text="eeeeeeeeeeee1111111111111111111111111111111111"
+        android:gravity="bottom"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:lottie_fileName="live_ic_gif_play.json"
+        app:lottie_loop="true"/>
+
+    <ImageView
+        android:id="@+id/iv_animation"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:onClick="jumpToVoucherAnimation"
+        android:text="voucher_animation"/>
+
+    <TextView
+        android:id="@+id/tv_flip"
+        android:visibility="gone"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:onClick="verticalReversal"
+        android:gravity="center"
+        android:background="#ffcccc"
+        android:text="1-20"/>
+
+    <Button
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:onClick="jumpToLocalWeb"
+        android:text="jumpToLocalWeb"/>
+
+    <com.changxiao.simpletestdemo.widget.AdaptiveTextView
+        android:id="@+id/tv_auto_fit_text"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="1234567890"/>
+
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/main_ic_album_group"/>
+
+    <ImageView
+        android:id="@+id/iv_group"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:src="@drawable/main_ic_album_group"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_bg_open_notification_head"/>
+
+</LinearLayout>

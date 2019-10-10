@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Framework</string>
+
+  <string name="framework_title_bar_contentDescription">标题栏</string>
+</resources>

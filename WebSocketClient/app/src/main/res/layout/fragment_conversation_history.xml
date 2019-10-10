@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zr_background_color"
+    android:orientation="vertical" >
+
+    <com.midas.websocketclient.widget.ZRListView
+        android:id="@+id/conversion_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadingEdge="vertical"
+        android:listSelector="@drawable/uc_item_bckg"
+        android:scrollbars="none"
+        android:fadeScrollbars="false"
+        android:scrollbarFadeDuration="0"></com.midas.websocketclient.widget.ZRListView>
+
+</LinearLayout>

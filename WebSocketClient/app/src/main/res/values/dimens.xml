@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="text_size_12">12.0sp</dimen>
+    <dimen name="text_big18_size">18sp</dimen>
+    <dimen name="text_size_19">19.0sp</dimen>
+    <dimen name="text_size_20">20.0sp</dimen>
+    <dimen name="height_top_bar">46dp</dimen>
+    <color name="top_bar_normal_bg">#F3F3F3</color>
+
+    <dimen name="slidemenu_right_width">160dp</dimen>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.changxiao.viewdraglayout.MainActivity">
+
+    <com.changxiao.viewdraglayout.ui.ZRSwipeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff00">
+
+        <LinearLayout
+            android:id="@+id/mContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="小尛龙
+                \ngithub地址：https://github.com/WuXiaolong
+                \n新浪微博：吴小龙同學"
+                android:textColor="#202020"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mBehindLayout"
+            android:layout_width="140dp"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:id="@+id/add"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="#4cd964"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp" />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="#ff2020"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp" />
+        </LinearLayout>
+
+    </com.changxiao.viewdraglayout.ui.ZRSwipeView>
+</RelativeLayout>

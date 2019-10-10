@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- 新主题Material Design设置-用到高级特性-使用兼容包-有自带的Google推荐的5.0效果的主题、样式等等 -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>

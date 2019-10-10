@@ -1,0 +1,13 @@
+<!--
+~ Created by Chang.Xiao on 2016/6/30.
+~ Copyright (c) 2016 Chang.Xiao
+-->
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- LineIndicator -->
+    <dimen name="line_alert_size">12sp</dimen>
+    <dimen name="line_indicator_text_size">14sp</dimen>
+</resources>

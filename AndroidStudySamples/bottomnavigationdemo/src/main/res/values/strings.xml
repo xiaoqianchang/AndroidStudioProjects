@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">BottomNavigationDemo</string>
+
+  <!-- 页面名称 -->
+  <string name="main_navigation_home">首页</string>
+  <string name="main_navigation_im">赚钱</string>
+  <string name="main_navigation_interest">邀请</string>
+  <string name="main_navigation_user">我的</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ximalaya</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/albumTemplate/style.css">
+    <script src="file:///android_asset/albumTemplate/flexible.js"></script>
+    <script src="file:///android_asset/albumTemplate/underscore.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script id="t_album" type="text/template">
+    <div class="j-card">
+        <div class="title">
+            <span class="txt">主讲人</span>
+        </div>
+        <div class="intro">
+            <%= personalDescription %>
+        </div>
+        <div class="load-more">
+            <div class="mask"></div>
+            <p class="load-txt">展开全部</p>
+        </div>
+    </div>
+    <div class="j-card">
+        <div class="title"><span class="txt">简介</span></div>
+        <%=introRich%>
+        <div class="load-more">
+            <div class="mask"></div>
+            <p class="load-txt">展开全部</p>
+        </div>
+    </div>
+
+    <div class="j-card comment-box">
+        <div class="title"><span class="txt">听友说</span></div>
+        <p class="comment-num mgb-10">共<%=comments.totalCount%>条评论</p>
+        <ul>
+            <%for(var i = 0; i < comments.list.length; i++){%>
+            <li class="comment-item">
+                <p class="comment-content"><%=comments.list[i].content%></p>
+                <div class="clear">
+                    <p class="star-bar fl">
+                        <span class="star-grade"><span class="star-graded" style="width:<%=(comments.list[i].album_score / 5) * 100 %>%"></span></span>
+                        <span class="c09 grade"><%=comments.list[i].album_score.toFixed(1)%></span>
+                    </p>
+                    <p class="fr user"><span class="nickname"><%=comments.list[i].nickname%></span><span class="userPic" style="background-image: url(<%=comments.list[i].smallHeader%>)"></span></p>
+                </div>
+            </li>
+            <%}%>
+        </ul>
+        <div class="load-more">
+            <div class="mask"></div>
+            <p class="load-txt">展开全部</p>
+        </div>
+    </div>
+    <%if (!!groupInfo){%>
+    <div class="j-card">
+        <div class="title"><span class="txt">加入付费专享群</span></div>
+        <div class="sub-title">购买专辑，与主讲人亲密互动</div>
+        <div class="join-group clear">
+            <div class="head-pic fl" style="background-image: url(<%=groupInfo.coverPath%>)"></div>
+            <div class="content fl">
+                <div class="group-title"><%=groupInfo.name%></div>
+                <div class="tags">
+                    <span class="tag-pay tag"></span>
+                    <span class="tag-num tag"><%=groupInfo.memberCount%>人</span>
+                </div>
+                <div class="intro ellipsis"><%=groupInfo.intro%></div>
+            </div>
+        </div>
+        <div class="load-more">
+            <div class="mask"></div>
+            <p class="load-txt">展开全部</p>
+        </div>
+    </div>
+    <%}%>
+    <div class="j-card">
+        <div class="title"><span class="txt">购买须知</span></div>
+        <%=buyNotes%>
+        <div class="load-more">
+            <div class="mask"></div>
+            <p class="load-txt">展开全部</p>
+        </div>
+    </div>
+    <%if(!!other_content){%>
+    <div class="j-card">
+        <div class="title"><span class="txt">其他说明</span></div>
+        <%=other_content%>
+        <div class="load-more">
+            <div class="mask"></div>
+            <p class="load-txt">展开全部</p>
+        </div>
+    </div>
+    <%}%>
+</script>
+<script>
+    var data = {"buyNotes":"\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e1、专辑售卖价为299/年\u003cspan\u003e，\u003c/span\u003e为全年订阅课程（即订阅从2017年10月20号——2018年8月20号期间更新的全部课程）每周二、四、六更新。（赠送的零起点课程每周一、三、五更新，三周内更新完毕）\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e2、已经购买的同学可以添加\u003cb\u003e小助理微信xingainian101\u003c/b\u003e（新概念的拼音加上101），凭购买截图入群获得对应精编讲义和社群答疑服务。\u003cb\u003e由于购买人数众多，小助理会在三个工作日内将学员拉入学习社群，敬请谅解\u003c/b\u003e。\u003cb\u003e(工作时间：周一至周五，10:00-12:00，13:00-19:00）\u003c/b\u003e\u003cbr /\u003e3、如在充值/购买环节遇到问题，您可通过页面右上方按钮，将页面分享至微信内使用微信支付完成购买\u003cbr /\u003e4、本专辑支持7天无忧退款，当您同时符合以下两种条件时，即可申请无忧退款：\u003cbr /\u003e条件1：购买后7天内\u003cbr /\u003e条件2：收听声音数与下载声音数之和不超过 5 条\u003cbr /\u003e申请退款入口在喜马拉雅app【我的】-【我的已购】\u003cbr /\u003e5、在购买过程中，如果你有任何问题，可以在微信搜索公众号【bestxmly】或搜索【喜马拉雅付费精品】来随时咨询问题，客服小伙伴会为你贴心解答，或直接拨打客服电话：0514-82395811\u003c/p\u003e\u003cspan\u003e\u003cbr /\u003e\u003c/span\u003e","detailCoverPath":"http://fdfs.xmcdn.com/group34/M0A/AD/1A/wKgJYFnnLLDyZXhLAAJ5-2jyCws589.jpg","introRich":"\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e本课程融合、参考了英语经典入门教材与新东方独家内部讲义，为国人英语学习的难点和痛点提供了系统性的方法论。\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e\u003cbr /\u003e\u003cb\u003e【贴心定制】\u003c/b\u003e\u003cbr /\u003e在杨芮的课堂上，你将享受到全方位的专属服务：\u003c/p\u003e\u003cspan\u003e\u003cbr /\u003e\u003c/span\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e不一样的编排：打破传统，课文以场景呈现，划分为【场景演练】【句型复现】【词汇专题】多个模块，全面覆盖听说读写学习需要。\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e\u003cbr /\u003e不一样的风格：作为新东方首位全国演讲冠军，杨芮的授课风格幽默诙谐、寓教于乐，帮助初学者破除初学恐惧，收获学习自信，多维度为你把知识点掰开揉碎，提升学习效率。\u003cbr /\u003e\u003cbr /\u003e不一样的服务：免费附赠20讲“零起点音标、语法课程”，组建学习社群，进行答疑解惑；学霸笔记分享，更有优秀作业奖品，告别半途而废，每日成就看得见。\u003cbr /\u003e\u003cb\u003e\u003cbr /\u003e\u003c/b\u003e\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e\u003cb\u003e【你将获得】\u003c/b\u003e\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e1.170专业课程，144篇经典课文，30个交流场景\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e2.2000个核心词汇，200条常用句式，16大基本时态\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e3.完成英语入门，全面训练听说读写，日常交流轻松搞定\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e4.获得系统性、趣味性、实用性，和入门困难说再见！\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e\u003cbr /\u003e\u003cb\u003e【适合人群】\u003c/b\u003e\u003c/p\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica,Arial,sans-serif;font-weight:normal;text-align:left;hyphens:auto\" data-flag\u003d\"normal\"\u003e1.想要一次性系统学习英语的英语小白\u003cbr /\u003e2.想要和孩子一块学习进步的家长朋友们\u003cbr /\u003e3.想要能在工作中进行日常英语应用的职场人士\u003cbr /\u003e4.想要能够解决所有口语交际问题的人\u003c/p\u003e\u003cspan\u003e\u003cbr /\u003e\u003c/span\u003e\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left\" data-flag\u003d\"normal\"\u003e\u003cspan\u003e\u003cimg data-key\u003d\"0\" alt\u003d\"\" src\u003d\"http://fdfs.xmcdn.com/group34/M00/6C/25/wKgJYVnp5vLy-TafAAhxEbf__uQ32_mobile_large.jpeg\" data-origin\u003d\"http://fdfs.xmcdn.com/group34/M00/6C/25/wKgJYVnp5vLy-TafAAhxEbf__uQ32.jpeg\" data-large\u003d\"http://fdfs.xmcdn.com/group34/M00/6C/25/wKgJYVnp5vLy-TafAAhxEbf__uQ32_mobile_large.jpeg\" data-large-width\u003d\"750\" data-large-height\u003d\"5400\" data-preview-width\u003d\"140\" data-preview-height\u003d\"1008\" data-preview\u003d\"http://fdfs.xmcdn.com/group34/M00/6C/25/wKgJYVnp5vLy-TafAAhxEbf__uQ32_mobile_small.jpeg\" /\u003e\u003cbr /\u003e\u003c/span\u003e\u003c/p\u003e","other_content":"","personalDescription":"\u003cp style\u003d\"font-size:16px;color:#333333;line-height:30px;font-family:Helvetica, Arial, sans-serif;font-weight:normal;text-align:left;display:inline !important\" data-flag\u003d\"normal\"\u003e\u003cspan\u003e杨芮，北京大学传播学硕士，作家，双语主持人。曾担任新东方教育科技集团上海、南昌等学校部门总监；新东方教育科技集团首批“全国十大演讲师”，新东方史上首位荣获全国演讲总冠军的集团级演讲师。\u003cbr /\u003e\u003cbr /\u003e在被誉为英语学习最好的入门教材之一的新概念授课领域，杨芮是“老师中的老师”。\u003cbr /\u003e\u003cbr /\u003e他从事了12年的专项教学，曾担任新东方上海新概念项目总监、《新概念英语》全国讲师培训师和教学讲义主编，每年教授数万人次的学员。\u003c/span\u003e\u003c/p\u003e"}
+  </script>
+<script type="text/javascript">
+    function isIos () {
+      var u = navigator.userAgent
+      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+      return isiOS
+    }
+    function bridgePostMsg (url) {
+      if (isIos()) {
+        window.location = url
+      } else {
+        var ifr = document.createElement('iframe')
+        ifr.style.display = 'none'
+        ifr.setAttribute('src', url)
+        document.body.appendChild(ifr)
+        setTimeout(function () {
+          document.body.removeChild(ifr)
+        }, 1000)
+      }
+    }
+    function _getHybridUrl (params) {
+      var url = 'iting://', paramStr = ''
+      url += params.path + '?t=' + new Date().getTime()
+      if (params.callback) {
+        url += '&callback=' + params.callback
+        delete params.callback
+      }
+      if (params.param) {
+        paramStr = typeof params.param == 'object' ? JSON.stringify(params.param) : params.param
+        url += '&param=' + encodeURIComponent((paramStr))
+      }
+      return url
+    }
+
+    function requestHybrid (params) {
+      var ts = (new Date().getTime())
+      var method = 'hybrid_' + ts
+      var tempFn
+      if (params.callback) {
+        tempFn = params.callback
+        params.callback = method
+        window[method] = function (data) {
+          tempFn(data)
+          delete window[method]
+        }
+      }
+      bridgePostMsg(_getHybridUrl(params))
+    }
+
+    window['get_album_data'] = function (data) {
+
+    }
+
+    var compiler = _.template(document.getElementById('t_album').innerHTML)
+    var html = compiler(data)
+    var container = document.querySelector('#container')
+    container.innerHTML=html
+    ;(function () {
+      var commNum = document.querySelector('.comment-box .comment-num')
+      var joinGroup = document.querySelector('.join-group')
+      if (!!commNum) {
+        commNum.addEventListener('click', function () {
+          requestHybrid({
+            path: 'open_comment'
+          })
+        })
+      }
+      if (!!joinGroup) {
+        joinGroup.addEventListener('click', function () {
+          requestHybrid({
+            path: 'open_group'
+          })
+        })
+      }
+      window.addEventListener('load', loaded)
+      var loadMores = Array.prototype.slice.call(document.querySelectorAll('.load-more'), 0)
+      loadMores.forEach(function (loadMore) {
+        loadMore.style.display = 'none'
+        var loadTxt = loadMore.querySelector('.load-txt')
+        loadTxt.addEventListener('click', function () {
+          loadMore.parentNode.style.height = 'auto'
+          loadMore.style.display = 'none'
+        })
+      })
+      function loaded () {
+        var cards = Array.prototype.slice.call(document.querySelectorAll('.j-card'), 0)
+        var dpr = parseInt(document.querySelector('html').getAttribute('data-dpr'))
+        cards.forEach(function (card) {
+          if (card.offsetHeight / dpr > 620 ) {
+            card.style.height = 620 * dpr + 'px'
+            card.querySelector('.load-more').style.display = 'block'
+          }
+        })
+      }
+    })()
+  </script>
+</body>
+</html>

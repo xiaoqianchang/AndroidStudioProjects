@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+~ Created by Chang.Xiao on 2016/6/30.
+~ Copyright (c) 2016 Chang.Xiao
+-->
+<resources>
+    <!-- Line Indicator -->
+    <declare-styleable name="LineIndicator">
+        <attr name="lineAlertColor" format="color|reference" />
+        <attr name="lineAlertSize" format="dimension" />
+        <attr name="lineProgressBackground" format="color" />
+        <attr name="lineProgressColor" format="color" />
+        <attr name="lineIndicatorTextSize" format="dimension" />
+        <attr name="lineIndicatorTextColor" format="color" />
+        <attr name="lineIndicatorBackground" format="color" />
+    </declare-styleable>
+</resources>

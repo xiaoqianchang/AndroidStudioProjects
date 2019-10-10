@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ximalaya</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" type="text/css" href="file:///android_asset/albumTemplate/style.css">
+  <script src="file:///android_asset/albumTemplate/flexible.js"></script>
+  <script src="file:///android_asset/albumTemplate/underscore.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script id="t_album" type="text/template">
+  <div class="j-card">
+    <div class="title">
+      <span class="txt">主讲人</span>
+    </div>
+    <div class="intro">
+      <%= personalDescription %>
+    </div>
+    <div class="load-more">
+      <div class="mask"></div>
+      <p class="load-txt">展开全部</p>
+    </div>
+  </div>
+  <div class="j-card">
+    <div class="title"><span class="txt">简介</span></div>
+    <%=introRich%>
+    <div class="load-more">
+      <div class="mask"></div>
+      <p class="load-txt">展开全部</p>
+    </div>
+  </div>
+
+  <div class="j-card comment-box">
+    <div class="title"><span class="txt">听友说</span></div>
+    <p class="comment-num mgb-10">共<%=comments.totalCount%>条评论</p>
+    <ul>
+      <%for(var i = 0; i < comments.list.length; i++){%>
+      <li class="comment-item">
+        <p class="comment-content"><%=comments.list[i].content%></p>
+        <div class="clear">
+          <p class="star-bar fl">
+            <span class="star-grade"><span class="star-graded" style="width:<%=(comments.list[i].album_score / 5) * 100 %>%"></span></span>
+            <span class="c09 grade"><%=comments.list[i].album_score.toFixed(1)%></span>
+          </p>
+          <p class="fr user"><span class="nickname"><%=comments.list[i].nickname%></span><span class="userPic" style="background-image: url(<%=comments.list[i].smallHeader%>)"></span></p>
+        </div>
+      </li>
+      <%}%>
+    </ul>
+    <div class="load-more">
+      <div class="mask"></div>
+      <p class="load-txt">展开全部</p>
+    </div>
+  </div>
+  <%if (!!groupInfo){%>
+  <div class="j-card">
+    <div class="title"><span class="txt">加入付费专享群</span></div>
+    <div class="sub-title">购买专辑，与主讲人亲密互动</div>
+    <div class="join-group clear">
+      <div class="head-pic fl" style="background-image: url(<%=groupInfo.coverPath%>)"></div>
+      <div class="content fl">
+        <div class="group-title"><%=groupInfo.name%></div>
+        <div class="tags">
+          <span class="tag-pay tag"></span>
+          <span class="tag-num tag"><%=groupInfo.memberCount%>人</span>
+        </div>
+        <div class="intro ellipsis"><%=groupInfo.intro%></div>
+      </div>
+    </div>
+    <div class="load-more">
+      <div class="mask"></div>
+      <p class="load-txt">展开全部</p>
+    </div>
+  </div>
+  <%}%>
+  <div class="j-card">
+    <div class="title"><span class="txt">购买须知</span></div>
+    <%=buyNotes%>
+    <div class="load-more">
+      <div class="mask"></div>
+      <p class="load-txt">展开全部</p>
+    </div>
+  </div>
+  <%if(!!other_content){%>
+  <div class="j-card">
+    <div class="title"><span class="txt">其他说明</span></div>
+    <%=other_content%>
+    <div class="load-more">
+      <div class="mask"></div>
+      <p class="load-txt">展开全部</p>
+    </div>
+  </div>
+  <%}%>
+</script>
+<script>
+    var data
+  </script>
+<script type="text/javascript">
+    function isIos () {
+      var u = navigator.userAgent
+      var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+      return isiOS
+    }
+    function bridgePostMsg (url) {
+      if (isIos()) {
+        window.location = url
+      } else {
+        var ifr = document.createElement('iframe')
+        ifr.style.display = 'none'
+        ifr.setAttribute('src', url)
+        document.body.appendChild(ifr)
+        setTimeout(function () {
+          document.body.removeChild(ifr)
+        }, 1000)
+      }
+    }
+    function _getHybridUrl (params) {
+      var url = 'iting://', paramStr = ''
+      url += params.path + '?t=' + new Date().getTime()
+      if (params.callback) {
+        url += '&callback=' + params.callback
+        delete params.callback
+      }
+      if (params.param) {
+        paramStr = typeof params.param == 'object' ? JSON.stringify(params.param) : params.param
+        url += '&param=' + encodeURIComponent((paramStr))
+      }
+      return url
+    }
+
+    function requestHybrid (params) {
+      var ts = (new Date().getTime())
+      var method = 'hybrid_' + ts
+      var tempFn
+      if (params.callback) {
+        tempFn = params.callback
+        params.callback = method
+        window[method] = function (data) {
+          tempFn(data)
+          delete window[method]
+        }
+      }
+      bridgePostMsg(_getHybridUrl(params))
+    }
+
+    window['get_album_data'] = function (data) {
+
+    }
+
+    var compiler = _.template(document.getElementById('t_album').innerHTML)
+    var html = compiler(data)
+    var container = document.querySelector('#container')
+    container.innerHTML=html
+    ;(function () {
+      var commNum = document.querySelector('.comment-box .comment-num')
+      var joinGroup = document.querySelector('.join-group')
+      if (!!commNum) {
+        commNum.addEventListener('click', function () {
+          requestHybrid({
+            path: 'open_comment'
+          })
+        })
+      }
+      if (!!joinGroup) {
+        joinGroup.addEventListener('click', function () {
+          requestHybrid({
+            path: 'open_group'
+          })
+        })
+      }
+      window.addEventListener('load', loaded)
+      var loadMores = Array.prototype.slice.call(document.querySelectorAll('.load-more'), 0)
+      loadMores.forEach(function (loadMore) {
+        loadMore.style.display = 'none'
+        var loadTxt = loadMore.querySelector('.load-txt')
+        loadTxt.addEventListener('click', function () {
+          loadMore.parentNode.style.height = 'auto'
+          loadMore.style.display = 'none'
+        })
+      })
+      function loaded () {
+        var cards = Array.prototype.slice.call(document.querySelectorAll('.j-card'), 0)
+        var dpr = parseInt(document.querySelector('html').getAttribute('data-dpr'))
+        cards.forEach(function (card) {
+          if (card.offsetHeight / dpr > 620 ) {
+            card.style.height = 620 * dpr + 'px'
+            card.querySelector('.load-more').style.display = 'block'
+          }
+        })
+      }
+    })()
+  </script>
+</body>
+</html>

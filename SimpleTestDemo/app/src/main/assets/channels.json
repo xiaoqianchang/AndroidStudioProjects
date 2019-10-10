@@ -1,0 +1,137 @@
+{"ret": 0,
+  "msg": "",
+  "slogan": "与好声音不期而遇",
+  "lastVisitChannel": null,
+  "classInfos": [
+    {
+      "className": "头条",
+      "classId": 3,
+      "channelInfos": [
+        {
+          "channelId": 301,
+          "channelName": "科技商业纵横",
+          "positionId": 3,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 3714
+        }
+      ]
+    },
+    {
+      "className": "儿童",
+      "classId": 1,
+      "channelInfos": [
+        {
+          "channelId": 100,
+          "channelName": "儿歌童谣",
+          "positionId": 2,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 4916
+        },
+        {
+          "channelId": 104,
+          "channelName": "英语早教机",
+          "positionId": 6,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 4163
+        },
+        {
+          "channelId": 101,
+          "channelName": "宝宝故事",
+          "positionId": 7,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 1030
+        },
+        {
+          "channelId": 103,
+          "channelName": "诗词歌赋启蒙",
+          "positionId": 11,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 3489
+        }
+      ]
+    },
+    {
+      "className": "音乐",
+      "classId": 2,
+      "channelInfos": [
+        {
+          "channelId": 200,
+          "channelName": "治愈放松轻音乐",
+          "positionId": 1,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 4701
+        },
+        {
+          "channelId": 403,
+          "channelName": "安静钢琴曲",
+          "positionId": 4,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 1206
+        },
+        {
+          "channelId": 202,
+          "channelName": "动感旋律",
+          "positionId": 5,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 4526
+        },
+        {
+          "channelId": 405,
+          "channelName": "音乐随身听",
+          "positionId": 9,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 4172
+        },
+        {
+          "channelId": 201,
+          "channelName": "工作学习白噪音",
+          "positionId": 14,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 4085
+        }
+      ]
+    },
+    {
+      "className": "休闲",
+      "classId": 4,
+      "channelInfos": [
+        {
+          "channelId": 402,
+          "channelName": "月光情话",
+          "positionId": 8,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 2639
+        },
+        {
+          "channelId": 400,
+          "channelName": "开心一刻",
+          "positionId": 12,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 1527
+        },
+        {
+          "channelId": 401,
+          "channelName": "相声大全",
+          "positionId": 15,
+          "cover": null,
+          "isRec": false,
+          "onLineNum": 1125
+        }
+      ]
+    }
+  ],
+  "recSrc": "oneKeyChannel",
+  "recTrack": "oneKeyTrack"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_rl_voucher"
+    android:layout_width="wrap_content"
+    android:layout_height="43dp">
+
+    <TextView
+        android:id="@+id/main_tv_voucher_text"
+        android:layout_width="97dp"
+        android:layout_height="23dp"
+        android:paddingLeft="41dp"
+        android:paddingRight="4dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/main_iv_voucher_logo"
+        android:background="@drawable/main_bg_album_voucher_text"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="由KFC赞助提供123知识节红包"
+        android:textColor="#333333"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/main_iv_voucher_logo"
+        android:layout_width="34dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@id/main_tv_voucher_text"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_ic_album_voucher_logo"/>
+</RelativeLayout>

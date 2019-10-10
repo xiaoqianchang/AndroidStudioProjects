@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.changxiao.bottomnavigationdemo">
+
+  <application>
+    <activity android:name=".activity.BottonNavigationActivity">
+    </activity>
+    <activity android:name=".activity.TabLayoutFragmentActivity">
+    </activity>
+  </application>
+
+</manifest>

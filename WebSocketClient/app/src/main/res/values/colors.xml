@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="zr_background_color">#ffffffff</color>
+    <color name="zr_comm_divider">#E3E3E3</color>
+    <color name="main_footer_bg">#F3F3F3</color>
+    <color name="zr_common_bg">#fcfcfc</color>
+
+    <!-- 底栏字体颜色 -->
+    <color name="footer_text_color_normal">#343434</color>
+    <color name="footer_text_color_selected">#e29b49</color>
+
+    <color name="bottom_text_color_normal">#000000</color>
+    <color name="divider_list">#d4d4d4</color>
+    <color name="gray_pressed">#edebe9</color>
+
+    <!-- title -->
+    <color name="head_text">#0e5986</color>
+    <color name="main_head_title_shadow_color">#ff000000</color>
+    <color name="main_head_title">#000000</color>
+    <color name="theme_text_color">#e29b49</color>
+</resources>
